@@ -43,12 +43,14 @@
 
     private static void ExpressionC(ref int enteredNum)
     {
-        double c = 0;
+        int c = 0;
+        int factorial = 1;
         int n = 0;
         while (n < enteredNum)
         {
             n++;
-            c += n!;
+            factorial *= n;
+            c += factorial;
         }
         Console.WriteLine("c = {0}", c);
     }

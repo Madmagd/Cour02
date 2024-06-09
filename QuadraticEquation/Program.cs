@@ -1,14 +1,31 @@
 ﻿internal class Program
 {
+    private static double AskValue()
+    {
+        double value;
+        bool isValueCorrect = false;
+
+        do
+        {
+            isValueCorrect = double.TryParse(Console.ReadLine(), out value);
+            if (!isValueCorrect)
+            {
+                Console.WriteLine("Неправильне значення. Спробуйте знову");
+            }
+        } while (!isValueCorrect);
+
+        return value;
+    }
+
     private static void Main(string[] args)
     {
         Console.WriteLine("Введіть значення a, b, c для рівняння ax^2 + bx + c = 0");
-        Console.Write("Значення a: ");
-        double a = double.Parse(Console.ReadLine());
-        Console.Write("Значення b: ");
-        double b = double.Parse(Console.ReadLine());
-        Console.Write("Значення c: ");
-        double c = double.Parse(Console.ReadLine());
+        Console.WriteLine("Значення a: ");
+        double a = AskValue();
+        Console.WriteLine("Значення b: ");
+        double b = AskValue();
+        Console.WriteLine("Значення c: ");
+        double c = AskValue();
         Console.WriteLine($"\n{a}x^2 + {b}x + {c} = 0");
 
         double d = Math.Pow(b, 2) - 4 * a * c;
